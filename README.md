@@ -1,5 +1,5 @@
-# thinkful-ds-study-group
-Collection of resources about Thinkful data science
+# thinkful-study-group
+Collection of resources about Thinkful
 
 ## Resources
 - [Public resources related to Thinkful's data science bootcamp](https://github.com/Thinkful-Ed/data-201-resources)
