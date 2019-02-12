@@ -1,9 +1,6 @@
-# General tips on setting up docker in windows
 # Setting up Docker on Windows
 
-These notes may be useful to Windows 10 users attempting to complete the Thinkful Data Science curriculum, Unit 6.8.2 "Docker specialization". To reap the joy found in computer programming network devices, please consider a UNIX derived machine for this type of work. -MR
-
-That said, here is what to do **on windows within a git-bash shell**:
+These notes may be useful to Windows 10 users attempting to complete the Thinkful Data Science curriculum, Unit 6.8.2 "Docker specialization". If using Unix based distribution is not possible, here is what to do **on windows within a git-bash shell**:
 
 Create an environment variable:
 `fpath=c:\\users\\janedoe\\thinkful\\big-data-student-resources`    
