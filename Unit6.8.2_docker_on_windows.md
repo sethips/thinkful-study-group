@@ -13,7 +13,7 @@ The variable name chosen here (`fpath`) is not special; we could have given any 
 
 5) Now, we'll run a docker container using this variable. Enter the following command:
 
-`winpty docker run -d --rm -p 8888:8888 -v $fpath:/home/ds/notebooks --name ds thinkfulstudent/pyspark:2.2.1`
+`winpty docker run -d --rm -p 8888:8888 -v $fpath:/home/ds/notebooks thinkfulstudent/pyspark:2.2.1`
 
 Let's unpack this command. It tells Docker to run a container called `thinkfulstudent/pyspark:2.2.1`. Docker will first check to see if this container is available locally. If so, it will run the container. If not, it will try to download it from Docker Hub, which is what will happen this time around. Unless you have insanely fast Internet, this will take a few minutes.
 
@@ -24,7 +24,6 @@ Once the container is available locally, Docker will name it `ds` and run it. Le
 - `--rm`: This tells Docker to remove the container (note, not the underlying image) after we shut it down.
 - `-p 8888:8888`: This defines the port mapping from the container to the host. Our container exposes port 8888, and this is the right-side of the colon in the command. The left side (in this case also 8888) indicates the host device port that is associated with the exposed container port.
 - `-v $fpath:/home/ds/notebooks`: This command maps the local folder specified by our variable to a corresponding directory inside the container and allows us to save files and data our container needs even after it's done running. The left side of the colon (our previously defined variable) must point to a fully qualified path on the host machine. The right side (`/home/ds/notebooks`) defines a corresponding directory inside the container where the code or data will be mapped.
-- `--name ds`: this names the docker container 'ds'. You can substitute a different name if you prefer. This makes follow-up command line interactions simpler. 
 - The final argument (`thinkfulstudent/pyspark:2.2.1`) tells Docker the image you wish to run. As we already stated, Docker first looks for the image locally, and if it doesn’t find it, goes to Docker Hub and attempts to pull it down and run it.
 
 6) After the container starts running, you should see the ID of the new container printed to the command line.
@@ -36,3 +35,6 @@ Once the container is available locally, Docker will name it `ds` and run it. Le
 8) In your browser, go to `localhost:8888`. You should see the standard Jupyter home screen. If your notebooks directory mapped properly, it will be populated with the notebooks in that directory when you launch, as shown below. If the Jupyter home screen appears but this directory shows up empty, recheck your local directory variable (noted as `fpath` above). 
 
 [same image as in curriculum]
+
+
+Final note: occasionally, docker on windows stops working after your machine is idle for a while. see [this thread](https://github.com/docker/for-win/issues/1560) for suggested solutions; namely, resetting docker credentials and/or restarting docker.
